@@ -31,13 +31,23 @@
     };
 
     behaviors {
-        layer_tap_hold: layer_tap_hold {
+        hold_tap_mo_to: hold_tap_mo_to {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_HOLD";
+            label = "HOLD_TAP_MO_TO";
             bindings = <&mo>, <&to>;
 
             #binding-cells = <2>;
             tapping-term-ms = <150>;
+        };
+
+        hold_tap_mo_kp: hold_tap_mo_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_MO_KP";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
         };
     };
 
@@ -63,22 +73,22 @@
 
             display-name = "Base";
             bindings = <
-&kp GRAVE      &kp N1          &kp N2       &kp N3          &kp N4            &kp N5                     &kp N6         &kp N7             &kp N8               &kp N9       &kp N0                   &kp EQUAL
-&kp TAB        &kp Q           &kp W        &kp E           &kp R             &kp T                      &kp Y          &kp U              &kp I                &kp O        &kp P                    &kp MINUS
-&mt LCTRL ESC  &mt LEFT_GUI A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_SHIFT F  &kp G                      &kp H          &mt RIGHT_SHIFT J  &mt RIGHT_ALT K      &mt RCTRL L  &mt RIGHT_GUI SEMICOLON  &kp SQT
-&kp LSHFT      &kp Z           &kp X        &kp C           &kp V             &kp B      &none    &none  &kp N          &kp M              &kp COMMA            &kp DOT      &kp FSLH                 &kp RSHFT
-                                            &kp LALT        &kp LGUI          &kp SPACE  &none    &none  &kp BACKSPACE  &kp ENTER          &layer_tap_hold 3 2
+&kp GRAVE      &kp N1          &kp N2       &kp N3          &kp N4            &kp N5                               &kp N6               &kp N7             &kp N8               &kp N9       &kp N0                   &kp EQUAL
+&kp TAB        &kp Q           &kp W        &kp E           &kp R             &kp T                                &kp Y                &kp U              &kp I                &kp O        &kp P                    &kp MINUS
+&mt LCTRL ESC  &mt LEFT_GUI A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_SHIFT F  &hold_tap_mo_kp 4 G                  &hold_tap_mo_kp 5 H  &mt RIGHT_SHIFT J  &mt RIGHT_ALT K      &mt RCTRL L  &mt RIGHT_GUI SEMICOLON  &kp SQT
+&kp LSHFT      &kp Z           &kp X        &kp C           &kp V             &kp B                &none    &none  &kp N                &kp M              &kp COMMA            &kp DOT      &kp FSLH                 &kp RSHFT
+                                            &kp LALT        &kp LGUI          &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER          &hold_tap_mo_to 3 2
             >;
         };
 
         no_hrm {
             display-name = "No HRM";
             bindings = <
-&kp GRAVE      &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                     &kp N6         &kp N7     &kp N8               &kp N9   &kp N0    &kp EQUAL
-&kp TAB        &kp Q   &kp W   &kp E     &kp R     &kp T                      &kp Y          &kp U      &kp I                &kp O    &kp P     &kp MINUS
-&mt LCTRL ESC  &kp A   &kp S   &kp D     &kp F     &kp G                      &kp H          &kp J      &kp K                &kp L    &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z   &kp X   &kp C     &kp V     &kp B      &none    &none  &kp N          &kp M      &kp COMMA            &kp DOT  &kp FSLH  &kp RSHFT
-                               &kp LALT  &kp LGUI  &kp SPACE  &none    &none  &kp BACKSPACE  &kp ENTER  &layer_tap_hold 3 2
+&kp GRAVE      &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                               &kp N6               &kp N7     &kp N8               &kp N9   &kp N0    &kp EQUAL
+&kp TAB        &kp Q   &kp W   &kp E     &kp R     &kp T                                &kp Y                &kp U      &kp I                &kp O    &kp P     &kp MINUS
+&mt LCTRL ESC  &kp A   &kp S   &kp D     &kp F     &hold_tap_mo_kp 4 G                  &hold_tap_mo_kp 5 H  &kp J      &kp K                &kp L    &kp SEMI  &kp SQT
+&kp LSHFT      &kp Z   &kp X   &kp C     &kp V     &kp B                &none    &none  &kp N                &kp M      &kp COMMA            &kp DOT  &kp FSLH  &kp RSHFT
+                               &kp LALT  &kp LGUI  &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER  &hold_tap_mo_to 3 2
             >;
         };
 
@@ -96,7 +106,7 @@
 &trans  &trans      &kp UP             &trans           &trans            &trans                    &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5      &kp KP_NUMBER_6  &kp KP_DIVIDE    &trans
 &trans  &kp LEFT    &kp DOWN           &kp RIGHT        &trans            &trans                    &trans  &kp KP_NUMBER_1  &kp KP_N2            &kp KP_NUMBER_3  &kp KP_PLUS      &trans
 &trans  &kp K_MUTE  &kp K_VOLUME_DOWN  &kp K_VOLUME_UP  &kp K_PLAY_PAUSE  &trans  &trans    &trans  &trans  &kp KP_EQUAL     &kp KP_NUMBER_0      &kp KP_DOT       &kp KP_MINUS     &trans
-                                       &trans           &trans            &trans  &trans    &trans  &trans  &trans           &layer_tap_hold 3 0
+                                       &trans           &trans            &trans  &trans    &trans  &trans  &trans           &hold_tap_mo_to 3 0
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
