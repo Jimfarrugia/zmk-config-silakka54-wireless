@@ -142,11 +142,11 @@
 
         nav {
             bindings = <
-&trans  &trans         &trans      &trans     &trans         &trans                           &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans         &kp K_BACK  &kp UP     &kp K_FORWARD  &trans                           &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LG(MINUS)  &kp LEFT    &kp DOWN   &kp RIGHT      &kp LG(EQUAL)                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans         &mkp RCLK   &mkp MCLK  &mkp LCLK      &trans         &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                   &trans     &trans         &trans         &trans    &trans  &trans  &trans  &trans
+&trans  &trans         &trans      &trans     &trans         &trans                           &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans         &kp K_BACK  &kp UP     &kp K_FORWARD  &trans                           &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &kp LG(MINUS)  &kp LEFT    &kp DOWN   &kp RIGHT      &kp LG(EQUAL)                    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans         &mkp RCLK   &mkp MCLK  &mkp LCLK      &trans         &trans    &trans  &trans  &trans     &trans     &trans     &trans  &trans
+                                   &trans     &trans         &trans         &trans    &trans  &trans  &trans     &trans
             >;
 
             label = "NAV";
