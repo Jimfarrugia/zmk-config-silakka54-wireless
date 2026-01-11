@@ -83,43 +83,35 @@
 
             display-name = "HRM ON";
             bindings = <
-&kp GRAVE      &kp N1          &kp N2       &kp N3          &kp N4            &kp N5                               &kp N6               &kp N7             &kp N8                &kp N9       &kp N0                   &kp EQUAL
-&kp TAB        &kp Q           &kp W        &kp E           &kp R             &kp T                                &kp Y                &kp U              &kp I                 &kp O        &kp P                    &kp MINUS
-&mt LCTRL ESC  &mt LEFT_GUI A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_SHIFT F  &hold_tap_mo_kp 0 G                  &hold_tap_mo_kp 4 H  &mt RIGHT_SHIFT J  &mt RIGHT_ALT K       &mt RCTRL L  &mt RIGHT_GUI SEMICOLON  &kp SQT
-&kp LSHFT      &kp Z           &kp X        &kp C           &kp V             &kp B                &none    &none  &kp N                &kp M              &kp COMMA             &kp DOT      &kp FSLH                 &kp RSHFT
-                                            &kp LALT        &kp LGUI          &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER          &hold_tap_mo_tog 3 2
+&kp GRAVE              &kp N1          &kp N2       &kp N3          &kp N4            &kp N5                               &kp N6               &kp N7             &kp N8                &kp N9       &kp N0                   &kp EQUAL
+&kp TAB                &kp Q           &kp W        &kp E           &kp R             &kp T                                &kp Y                &kp U              &kp I                 &kp O        &kp P                    &kp MINUS
+&hold_tap_mo_kp 2 ESC  &mt LEFT_GUI A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_SHIFT F  &hold_tap_mo_kp 6 G                  &hold_tap_mo_kp 5 H  &mt RIGHT_SHIFT J  &mt RIGHT_ALT K       &mt RCTRL L  &mt RIGHT_GUI SEMICOLON  &hold_tap_mo_kp 2 SQT
+&kp LSHFT              &kp Z           &kp X        &kp C           &kp V             &kp B                &none    &none  &kp N                &kp M              &kp COMMA             &kp DOT      &kp FSLH                 &kp RSHFT
+                                                    &kp LALT        &kp LGUI          &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER          &hold_tap_mo_tog 3 4
             >;
         };
 
-        no_hrm {
+        hrm_off {
             display-name = "HRM OFF";
             bindings = <
-&kp GRAVE      &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                               &kp N6               &kp N7     &kp N8                &kp N9   &kp N0    &kp EQUAL
-&kp TAB        &kp Q   &kp W   &kp E     &kp R     &kp T                                &kp Y                &kp U      &kp I                 &kp O    &kp P     &kp MINUS
-&mt LCTRL ESC  &kp A   &kp S   &kp D     &kp F     &hold_tap_mo_kp 0 G                  &hold_tap_mo_kp 4 H  &kp J      &kp K                 &kp L    &kp SEMI  &kp SQT
-&kp LSHFT      &kp Z   &kp X   &kp C     &kp V     &kp B                &none    &none  &kp N                &kp M      &kp COMMA             &kp DOT  &kp FSLH  &kp RSHFT
-                               &kp LALT  &kp LGUI  &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER  &hold_tap_mo_tog 3 2
+&kp GRAVE              &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                               &kp N6               &kp N7     &kp N8                &kp N9   &kp N0    &kp EQUAL
+&kp TAB                &kp Q   &kp W   &kp E     &kp R     &kp T                                &kp Y                &kp U      &kp I                 &kp O    &kp P     &kp MINUS
+&hold_tap_mo_kp 2 ESC  &kp A   &kp S   &kp D     &kp F     &hold_tap_mo_kp 6 G                  &hold_tap_mo_kp 5 H  &kp J      &kp K                 &kp L    &kp SEMI  &hold_tap_mo_kp 2 SQT
+&kp LSHFT              &kp Z   &kp X   &kp C     &kp V     &kp B                &none    &none  &kp N                &kp M      &kp COMMA             &kp DOT  &kp FSLH  &kp RSHFT
+                                       &kp LALT  &kp LGUI  &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER  &hold_tap_mo_tog 3 4
             >;
         };
 
-        nav_pad {
-            // ------------------------------------------------------------------------------------------------------------
-            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-            //                     |      |      |      |        |  |       |      |       |       |
-
-            display-name = "NAVPAD";
+        symbols {
             bindings = <
-&trans  &trans         &trans      &trans          &trans           &trans                           &trans  &kp N7     &kp N8        &kp N9      &kp ASTERISK  &trans
-&trans  &trans         &kp K_BACK  &kp UP_ARROW    &kp K_FORWARD    &trans                           &trans  &kp N4     &kp N5        &kp N6      &kp SLASH     &trans
-&trans  &kp LG(MINUS)  &kp DOWN    &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(EQUAL)                    &trans  &kp N1     &kp N2        &kp N3      &kp PLUS      &trans
-&trans  &trans         &mkp RCLK   &mkp MCLK       &mkp RCLK        &trans         &trans    &trans  &trans  &kp EQUAL  &kp NUMBER_0  &kp PERIOD  &kp MINUS     &trans
-                                   &trans          &trans           &trans         &trans    &trans  &trans  &trans     &trans
+&trans  &trans            &trans             &trans                &trans                 &trans                         &trans         &trans                &trans                 &trans                &trans                 &trans
+&trans  &kp EXCLAMATION   &kp AT_SIGN        &kp HASH              &kp DOLLAR             &kp PERCENT                    &kp CARET      &kp AMPERSAND         &kp ASTERISK           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE                       &kp PIPE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
+&trans  &kp LESS_THAN     &kp GREATER_THAN   &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp SLASH    &trans    &trans  &kp BACKSLASH  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp LESS_THAN         &kp GREATER_THAN       &trans
+                                             &trans                &trans                 &trans       &trans    &trans  &trans         &trans                &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            label = "SYMBOL";
         };
 
         fn_keys {
@@ -140,10 +132,28 @@
             >;
         };
 
+        nav_pad {
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
+            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
+            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
+            //                     |      |      |      |        |  |       |      |       |       |
+
+            display-name = "NAVPAD";
+            bindings = <
+&trans  &trans         &trans          &trans          &trans           &trans                           &trans  &kp N7     &kp N8        &kp N9      &kp ASTERISK  &trans
+&trans  &kp HOME       &kp K_BACK      &kp UP_ARROW    &kp K_FORWARD    &kp END                          &trans  &kp N4     &kp N5        &kp N6      &kp SLASH     &trans
+&trans  &kp LG(MINUS)  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LG(EQUAL)                    &trans  &kp N1     &kp N2        &kp N3      &kp PLUS      &trans
+&trans  &trans         &mkp RCLK       &mkp MCLK       &mkp LCLK        &trans         &trans    &trans  &trans  &kp EQUAL  &kp NUMBER_0  &kp PERIOD  &kp MINUS     &trans
+                                       &trans          &trans           &trans         &trans    &trans  &trans  &trans     &trans
+            >;
+        };
+
         nav {
             bindings = <
 &trans  &trans         &trans      &trans     &trans         &trans                           &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans         &kp K_BACK  &kp UP     &kp K_FORWARD  &trans                           &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &kp HOME       &kp K_BACK  &kp UP     &kp K_FORWARD  &kp END                          &trans  &trans     &trans     &trans     &trans  &trans
 &trans  &kp LG(MINUS)  &kp LEFT    &kp DOWN   &kp RIGHT      &kp LG(EQUAL)                    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
 &trans  &trans         &mkp RCLK   &mkp MCLK  &mkp LCLK      &trans         &trans    &trans  &trans  &trans     &trans     &trans     &trans  &trans
                                    &trans     &trans         &trans         &trans    &trans  &trans  &trans     &trans
@@ -161,20 +171,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &kp EQUAL  &kp NUMBER_0  &kp PERIOD  &kp MINUS     &trans
                         &trans  &trans  &trans  &trans    &trans  &trans  &trans     &trans
             >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-
-        Symbol {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
-            >;
-
-            label = "SYMBOL";
         };
     };
 };
