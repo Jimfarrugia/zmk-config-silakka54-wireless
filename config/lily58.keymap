@@ -104,11 +104,11 @@
 
         symbols {
             bindings = <
-&trans  &trans           &trans        &trans         &trans         &trans                    &trans  &trans                &trans                 &trans         &trans            &trans
-&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH       &kp DOLLAR     &trans                    &trans  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp MINUS      &kp EQUAL         &trans
-&trans  &kp CARET        &kp ASTERISK  &kp AMPERSAND  &kp PERCENT    &trans                    &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE       &trans            &trans
-&trans  &kp GRAVE        &kp TILDE     &kp SLASH      &kp BACKSLASH  &trans  &trans    &trans  &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LESS_THAN  &kp GREATER_THAN  &trans
-                                       &trans         &trans         &trans  &trans    &trans  &trans  &trans                &trans
+&trans  &trans           &trans        &trans         &trans            &trans                       &trans          &trans                &trans                 &trans      &trans           &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH       &kp DOLLAR        &kp PLUS                     &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR  &kp EXCLAMATION  &trans
+&trans  &kp CARET        &kp ASTERISK  &kp AMPERSAND  &kp PERCENT       &kp EQUAL                    &kp MINUS       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE    &trans           &trans
+&trans  &kp GRAVE        &kp TILDE     &kp LESS_THAN  &kp GREATER_THAN  &kp SLASH  &trans    &trans  &kp BACKSLASH   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp HASH    &kp AT_SIGN      &trans
+                                       &trans         &trans            &trans     &trans    &trans  &trans          &trans                &trans
             >;
 
             label = "SYMBOL";
