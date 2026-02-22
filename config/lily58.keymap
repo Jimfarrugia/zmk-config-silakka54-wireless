@@ -68,6 +68,20 @@
             bindings = <&kp O &kp T &kp I &kp S &kp MINUS &kp D &kp E &kp L &kp A &kp R &kp G &kp E>;
             label = "TYPE_UNAME";
         };
+
+        surround: surround {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp A>;
+            label = "SURROUND";
+        };
+
+        surround_word: surround_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp A &kp I &kp W>;
+            label = "SURROUND_WORD";
+        };
     };
 
     keymap {
@@ -84,7 +98,7 @@
             display-name = "HRM ON";
             bindings = <
 &kp GRAVE              &kp N1          &kp N2       &kp N3          &kp N4            &kp N5                               &kp N6               &kp N7             &kp N8                &kp N9       &kp N0                   &kp EQUAL
-&kp TAB                &kp Q           &kp W        &kp E           &kp R             &kp T                                &kp Y                &kp U              &kp I                 &kp O        &kp P                    &kp MINUS
+&hold_tap_mo_kp 1 TAB  &kp Q           &kp W        &kp E           &kp R             &kp T                                &kp Y                &kp U              &kp I                 &kp O        &kp P                    &kp MINUS
 &hold_tap_mo_kp 2 ESC  &mt LEFT_GUI A  &mt LCTRL S  &mt LEFT_ALT D  &mt LEFT_SHIFT F  &hold_tap_mo_kp 6 G                  &hold_tap_mo_kp 5 H  &mt RIGHT_SHIFT J  &mt RIGHT_ALT K       &mt RCTRL L  &mt RIGHT_GUI SEMICOLON  &hold_tap_mo_kp 2 SQT
 &kp LSHFT              &kp Z           &kp X        &kp C           &kp V             &kp B                &none    &none  &kp N                &kp M              &kp COMMA             &kp DOT      &kp FSLH                 &kp RSHFT
                                                     &kp LALT        &kp LGUI          &kp SPACE            &none    &none  &kp BACKSPACE        &kp ENTER          &hold_tap_mo_tog 3 4
@@ -104,11 +118,11 @@
 
         symbols {
             bindings = <
-&trans  &trans           &trans        &trans         &trans            &trans                       &trans          &trans                &trans                 &trans      &trans           &trans
-&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH       &kp DOLLAR        &kp PLUS                     &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp DOLLAR  &kp EXCLAMATION  &trans
-&trans  &kp CARET        &kp ASTERISK  &kp AMPERSAND  &kp PERCENT       &kp EQUAL                    &kp MINUS       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PIPE    &trans           &trans
-&trans  &kp GRAVE        &kp TILDE     &kp LESS_THAN  &kp GREATER_THAN  &kp SLASH  &trans    &trans  &kp BACKSLASH   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp HASH    &kp AT_SIGN      &trans
-                                       &trans         &trans            &trans     &trans    &trans  &trans          &trans                &trans
+&trans  &trans           &trans         &trans         &trans            &trans                         &trans          &trans                &trans                 &trans         &trans            &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH       &kp DOLLAR        &kp PERCENT                    &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE       &kp BACKSLASH     &trans
+&trans  &kp CARET        &kp AMPERSAND  &kp ASTERISK   &kp QUESTION      &kp SLASH                      &kp BACKSLASH   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &surround      &surround_word    &trans
+&trans  &kp GRAVE        &kp TILDE      &kp LESS_THAN  &kp GREATER_THAN  &kp EQUAL    &trans    &trans  &kp PLUS        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LESS_THAN  &kp GREATER_THAN  &trans
+                                        &trans         &trans            &trans       &trans    &trans  &trans          &trans                &trans
             >;
 
             label = "SYMBOL";
