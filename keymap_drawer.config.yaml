@@ -11,7 +11,7 @@ parse_config:
   # Legends for whole bindings
   raw_binding_map:
     "&caps_word": "Caps Word"
-    "&type_uname": "Username"
+    "&type_uname": "User name"
     "&kp LG(MINUS)": "Zoom -"
     "&kp LG(EQUAL)": "Zoom +"
     "&msc SCRL_UP": "Scroll ↑"
@@ -21,6 +21,11 @@ parse_config:
     "&mkp MCLK": "Mid click"
     "&bt BT_CLR": "BT clear"
     "&bt BT_CLR_ALL": "BT clear all"
+    "&bt BT_SEL 0": "BT 0"
+    "&bt BT_SEL 1": "BT 1"
+    "&bt BT_SEL 2": "BT 2"
+    "&bt BT_SEL 3": "BT 3"
+    "&bt BT_SEL 4": "BT 4"
 
   # Legends for keycodes (keymap-drawer's defaults first, then additions for this keymap)
   zmk_keycode_map:
