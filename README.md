@@ -19,6 +19,14 @@ This drawing is redrawn automatically by [keymap-drawer](https://github.com/caks
 | **Nav** | Hold H (left hand). |
 | **Control** | Hold the Delete thumb key: Bluetooth, media, brightness, Caps Lock. |
 
+## Printable cheatsheets
+
+Print these at 100% (actual size). They're redrawn automatically whenever the keymap changes.
+
+- [**Landscape (A4)**](cheatsheet/silakka54-cheatsheet.pdf): Symbols, Nav and Numpad
+- [**Portrait (A4)**](cheatsheet/silakka54-cheatsheet-portrait.pdf): Base, Symbols, Nav and Numpad
+- One image per layer: [Base](cheatsheet/layers/1-base.png) · [HRM off](cheatsheet/layers/2-hrm-off.png) · [Symbols](cheatsheet/layers/3-symbols.png) · [Numpad](cheatsheet/layers/4-numpad.png) · [Nav](cheatsheet/layers/5-nav.png) · [Control](cheatsheet/layers/6-control.png)
+
 ## Getting the firmware
 
 Every push builds new firmware with GitHub Actions.
@@ -32,7 +40,7 @@ Every push builds new firmware with GitHub Actions.
 Edit [`config/lily58.keymap`](config/lily58.keymap), on GitHub with the pencil button or locally, and commit. Two workflows then run:
 
 - **Build** ([`build.yml`](.github/workflows/build.yml)) makes the firmware.
-- **Draw keymap** ([`draw-keymaps.yml`](.github/workflows/draw-keymaps.yml)) redraws the picture above and commits it.
+- **Draw keymap and cheatsheets** ([`draw-keymaps.yml`](.github/workflows/draw-keymaps.yml)) redraws the picture above and the printable cheatsheets, and commits them.
 
 Keymap reference: [ZMK docs](https://zmk.dev/docs).
 
@@ -41,4 +49,5 @@ ZMK is pinned to `v0.3` in [`config/west.yml`](config/west.yml), so upstream cha
 ### Drawing setup
 
 - [`keymap_drawer.config.yaml`](keymap_drawer.config.yaml): legends and styling for the drawing.
-- [`keymap-drawer/silakka54_layout.json`](keymap-drawer/silakka54_layout.json): the silakka54's physical layout in the lily58 shield's key order. The lily58 has 4 key positions the silakka54 doesn't, and the config hides them.
+- [`keymap-drawer/silakka54_layout.json`](keymap-drawer/silakka54_layout.json): the silakka54's physical layout in the lily58 shield's key order. The lily58 has 4 key positions the silakka54 doesn't, and the config hides them. The cheatsheets use this file too.
+- [`cheatsheet/render.py`](cheatsheet/render.py): draws the printable cheatsheets. Layer titles, the help text and which layers go on the one-page sheets are set at the top of the file. Which key you hold for each layer is read from the keymap.
