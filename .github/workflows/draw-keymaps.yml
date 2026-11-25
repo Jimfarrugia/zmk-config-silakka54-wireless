@@ -1,0 +1,24 @@
+# Redraws keymap-drawer/lily58.svg (shown in the README) whenever the keymap changes.
+# Uses https://github.com/caksoylar/keymap-drawer
+name: Draw keymap
+on:
+  workflow_dispatch: # can be run by hand from the Actions tab
+  push:
+    paths:
+      - "config/*.keymap"
+      - "keymap_drawer.config.yaml"
+      - "keymap-drawer/silakka54_layout.json"
+      - ".github/workflows/draw-keymaps.yml"
+
+jobs:
+  draw:
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    permissions:
+      contents: write # lets the workflow commit the drawing back to the repo
+    with:
+      keymap_patterns: "config/*.keymap"
+      config_path: "keymap_drawer.config.yaml"
+      output_folder: "keymap-drawer"
+      parse_args: "lily58:'--layer-names Base HRM-off Symbols Numpad Nav Control'"
+      draw_args: "lily58:'--qmk-info-json keymap-drawer/silakka54_layout.json'"
+      commit_message: "Redraw keymap"
