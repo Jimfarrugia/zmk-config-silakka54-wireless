@@ -1,6 +1,7 @@
-# Redraws keymap-drawer/lily58.svg (shown in the README) whenever the keymap changes.
-# Uses https://github.com/caksoylar/keymap-drawer
-name: Draw keymap
+# Redraws the keymap pictures whenever the keymap changes:
+#   1. keymap-drawer/lily58.svg (shown in the README), using https://github.com/caksoylar/keymap-drawer
+#   2. the printable cheatsheets in cheatsheet/, using cheatsheet/render.py
+name: Draw keymap and cheatsheets
 on:
   workflow_dispatch: # can be run by hand from the Actions tab
   push:
@@ -8,6 +9,7 @@ on:
       - "config/*.keymap"
       - "keymap_drawer.config.yaml"
       - "keymap-drawer/silakka54_layout.json"
+      - "cheatsheet/render.py"
       - ".github/workflows/draw-keymaps.yml"
 
 jobs:
@@ -22,3 +24,37 @@ jobs:
       parse_args: "lily58:'--layer-names Base HRM-off Symbols Numpad Nav Control'"
       draw_args: "lily58:'--qmk-info-json keymap-drawer/silakka54_layout.json'"
       commit_message: "Redraw keymap"
+
+  cheatsheets:
+    needs: draw # runs after the drawing is committed, so the two don't push at the same time
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }} # latest commit on the branch, including the drawing above
+
+      - name: Install rsvg-convert and fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends librsvg2-bin fonts-inter fonts-dejavu-core
+
+      - name: Draw cheatsheets
+        run: |
+          export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+          python3 cheatsheet/render.py config/lily58.keymap keymap-drawer/silakka54_layout.json cheatsheet
+
+      - name: Commit cheatsheets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cheatsheet/*.pdf cheatsheet/layers/*.png
+          if git diff --cached --quiet; then
+            echo "Cheatsheets unchanged"
+            exit 0
+          fi
+          git commit -m "Redraw cheatsheets"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
