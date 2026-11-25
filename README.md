@@ -1,0 +1,44 @@
+# Silakka54 wireless – ZMK config
+
+ZMK firmware config for my [Silakka54](https://github.com/Squalius-cephalus/silakka54) split keyboard: 54 keys, a Corne-style layout with a number row and 3 thumb keys per side. It runs on nice!nano v2 controllers with nice!view displays.
+
+The keyboard is built as the `lily58` shield, so the keymap lives in [`config/lily58.keymap`](config/lily58.keymap).
+
+## Keymap
+
+![Keymap](keymap-drawer/lily58.svg)
+
+This drawing is redrawn automatically by [keymap-drawer](https://github.com/caksoylar/keymap-drawer) every time the keymap changes. Keys with two legends are tap/hold: the big legend is the tap and the small one is the hold.
+
+| Layer | How to get there |
+| --- | --- |
+| **Base** | Default. Home row mods on A S D F / J K L ; (GUI, Ctrl, Alt, Shift). |
+| **HRM-off** | Press F + J together to toggle home row mods off and on, or hold Tab for HRM-off while held. |
+| **Symbols** | Hold Esc or ' (quote). |
+| **Numpad** | Hold G (right hand). |
+| **Nav** | Hold H (left hand). |
+| **Control** | Hold the Delete thumb key: Bluetooth, media, brightness, Caps Lock. |
+
+## Getting the firmware
+
+Every push builds new firmware with GitHub Actions.
+
+1. Open the **Actions** tab and select the latest **Build** run.
+2. Download the `firmware` file at the bottom of the run summary and unzip it.
+3. Flash each half: plug it in by USB, double-tap the reset button so it appears as a drive, then copy across that half's `.uf2` file (`lily58_left…` or `lily58_right…`).
+
+## Changing the keymap
+
+Edit [`config/lily58.keymap`](config/lily58.keymap), on GitHub with the pencil button or locally, and commit. Two workflows then run:
+
+- **Build** ([`build.yml`](.github/workflows/build.yml)) makes the firmware.
+- **Draw keymap** ([`draw-keymaps.yml`](.github/workflows/draw-keymaps.yml)) redraws the picture above and commits it.
+
+Keymap reference: [ZMK docs](https://zmk.dev/docs).
+
+ZMK is pinned to `v0.3` in [`config/west.yml`](config/west.yml), so upstream changes don't arrive until the version there is changed.
+
+### Drawing setup
+
+- [`keymap_drawer.config.yaml`](keymap_drawer.config.yaml): legends and styling for the drawing.
+- [`keymap-drawer/silakka54_layout.json`](keymap-drawer/silakka54_layout.json): the silakka54's physical layout in the lily58 shield's key order. The lily58 has 4 key positions the silakka54 doesn't, and the config hides them.
