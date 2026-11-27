@@ -44,6 +44,16 @@ Edit [`config/lily58.keymap`](config/lily58.keymap), on GitHub with the pencil b
 
 Keymap reference: [ZMK docs](https://zmk.dev/docs).
 
+### Using ZMK Studio
+
+[ZMK Studio](https://zmk.dev/docs/features/studio) is **switched off** in this config, so it can't connect to the keyboard. To turn it back on:
+
+1. In [`config/lily58.conf`](config/lily58.conf), uncomment `CONFIG_ZMK_STUDIO=y` and `CONFIG_ZMK_STUDIO_LOCKING=n`.
+2. In [`build.yaml`](build.yaml), uncomment `snippet: studio-rpc-usb-uart` under the left half.
+3. Flash the new firmware to the left half.
+
+Changes saved in Studio are stored on the keyboard, not in this repo. While they're there, the keyboard ignores changes to `config/lily58.keymap` until you choose "Restore Stock Settings" in Studio.
+
 ZMK is pinned to `v0.3` in [`config/west.yml`](config/west.yml), so upstream changes don't arrive until the version there is changed.
 
 ### Drawing setup
